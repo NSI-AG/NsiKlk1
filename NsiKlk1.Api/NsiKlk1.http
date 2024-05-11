@@ -1,0 +1,6 @@
+@NsiKlk1_HostAddress = http://localhost:5129
+
+GET {{NsiKlk1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
