@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NsiKlk1.Domain.Enums;
@@ -12,9 +13,11 @@ using NsiKlk1.Infrastructure.Contexts;
 namespace NsiKlk1.Infrastructure.Migrations
 {
     [DbContext(typeof(NsiKlk1DbContext))]
-    partial class NsiKlk1DbContextModelSnapshot : ModelSnapshot
+    [Migration("20240513124147_NewMigration")]
+    partial class NewMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
