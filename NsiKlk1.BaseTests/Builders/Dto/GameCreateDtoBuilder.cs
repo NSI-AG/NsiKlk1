@@ -27,5 +27,11 @@ public class GameCreateDtoBuilder
         return this;
     }
 
+    public GameCreateDtoBuilder WithCategory(int category)
+    {
+        _category = category;
+        return this;
+    }
+
     public GameCreateDto Build() => new(_developerId, _name, _description, _category);
 }

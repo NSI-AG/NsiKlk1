@@ -1,0 +1,10 @@
+﻿services:
+  nsiklk1.api:
+    image: nsiklk1-be-api
+    restart: always
+    container_name: nsiklk1-be-api
+    ports:
+      - 8080:8080
+    build:
+      context: .
+      dockerfile: NsiKlk1.Api/Dockerfile

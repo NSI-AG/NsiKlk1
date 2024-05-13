@@ -1,8 +1,10 @@
-﻿using NsiKlk1.Application.Common.Dto.Game;
+﻿using Ardalis.GuardClauses;
+using NsiKlk1.Application.Common.Dto.Game;
 using NsiKlk1.Application.Common.Interfaces;
 using NsiKlk1.Application.Common.Mappers;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using NotFoundException = NsiKlk1.Application.Common.Exceptions.NotFoundException;
 
 namespace NsiKlk1.Application.Games.Queries;
 
@@ -16,6 +18,11 @@ public class GameDetailsQueryHandler(INsiKlk1DbContext dbContext) : IRequestHand
             .Include(x => x.Developer)
             .Where(x => x.Id == Guid.Parse(request.Id))
             .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+
+        if (result == null)
+        {
+            throw new NotFoundException("Game not found.");
+        }
 
         return result?.ToDto();
     }

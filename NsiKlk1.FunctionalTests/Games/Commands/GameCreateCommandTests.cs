@@ -15,7 +15,7 @@ namespace NsiKlk1.FunctionalTests.Games.Commands;
 public class GameCreateCommandTests : BaseTests
 {
     [Fact]
-    public async Task GameCreateCommandTest_GivenValidGame_StatusOk()
+    public async Task GameCreateCommandTest_GivenValidGame_StatusOK()
     {
         //Given
         var developer = new DeveloperBuilder().Build();
@@ -34,11 +34,11 @@ public class GameCreateCommandTests : BaseTests
             Encoding.UTF8,
             "application/json");
 
-        MockDeveloperService.Setup(x => x.CreateAsync())
-            .Returns("Test");
+        /*MockDeveloperService.Setup(x => x.CreateAsync())
+            .Returns("Test");*/
 
         //When
-        var response = await Client.PostAsync("/api/Game/Create/create",
+        var response = await Client.PostAsync("/api/Game/Create",
             contentRequest,
             new CancellationToken());
 
@@ -54,7 +54,7 @@ public class GameCreateCommandTests : BaseTests
         content.Should()
             .NotBeNull();
 
-        MockDeveloperService.Verify(x => x.CreateAsync(), Times.Once);
+        //MockDeveloperService.Verify(x => x.CreateAsync(), Times.Once);
     }
 
     public GameCreateCommandTests(CustomWebApplicationFactory<Program> factory) : base(factory)

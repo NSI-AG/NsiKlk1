@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace NsiKlk1.Infrastructure.Domain.Developer;
 
-public class GameConfiguration : IEntityTypeConfiguration<NsiKlk1.Domain.Entities.Game>
+public class DeveloperConfiguration : IEntityTypeConfiguration<NsiKlk1.Domain.Entities.Developer>
 {
-    public void Configure(EntityTypeBuilder<NsiKlk1.Domain.Entities.Game> builder)
+    public void Configure(EntityTypeBuilder<NsiKlk1.Domain.Entities.Developer> builder)
     {
-        builder.ToTable("Games");
+        builder.ToTable("Developers");
 
         builder.Property(x => x.Id)
                .ValueGeneratedNever();
