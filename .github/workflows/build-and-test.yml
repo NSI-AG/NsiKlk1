@@ -28,3 +28,7 @@ jobs:
         run: docker build -f NsiKlk1.Api/Dockerfile --force-rm -t nsiklk1.azurecr.io/nsiklk1:v2 .
       - name: Docker Push
         run: docker push nsiklk1.azurecr.io/nsiklk1:v2
+      - name: Add migration
+        run: dotnet ef migrations add Migration --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
+      - name: Database update
+        run: dotnet ef database update --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
