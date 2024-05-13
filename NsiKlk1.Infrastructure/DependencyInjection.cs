@@ -19,12 +19,12 @@ public static class DependencyInjection
         var dbConfiguration = new PostgresDbConfiguration();
         configuration.GetSection("PostgresDbConfiguration").Bind(dbConfiguration);
 
-        if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Test")
-        {
+        //if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Test")
+        //{
             services.AddDbContext<NsiKlk1DbContext>(options =>
                 options.UseNpgsql(dbConfiguration.ConnectionString,
                     x => x.MigrationsAssembly(typeof(NsiKlk1DbContext).Assembly.FullName)));
-        }
+        //}
         
         services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddRoleManager<RoleManager<ApplicationRole>>()

@@ -26,13 +26,13 @@ jobs:
         run: docker login nsiklk1.azurecr.io -u ${{secrets.NsiKlk1Username}} -p ${{secrets.NsiKlk1Password}}
       - name: Docker Build
         run: docker build -f NsiKlk1.Api/Dockerfile --force-rm -t nsiklk1.azurecr.io/nsiklk1:v3 .
-      #- name: Dotnet tool install
-      #  run: |
-      #    dotnet tool install --global dotnet-ef
-      #    dotnet tool restore
-      #- name: Add migration
-      #  run: dotnet ef migrations add NewMigration --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
-      #- name: Database update
-      #  run: dotnet ef database update --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
+      - name: Dotnet tool install
+        run: |
+          dotnet tool install --global dotnet-ef
+          dotnet tool restore
+      - name: Add migration
+        run: dotnet ef migrations add NewMigration --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
+      - name: Database update
+        run: dotnet ef database update --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
       - name: Docker Push
         run: docker push nsiklk1.azurecr.io/nsiklk1:v3
