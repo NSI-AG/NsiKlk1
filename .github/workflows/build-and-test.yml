@@ -25,6 +25,6 @@ jobs:
       - name: Login
         run: docker login nsiklk1.azurecr.io -u ${{secrets.NsiKlk1Username}} -p ${{secrets.NsiKlk1Password}}
       - name: Docker Build
-        run: docker build -f NsiKlk1.Api\Dockerfile --force-rm -t nsiklk1.azurecr.io/nsiklk1:v2 .
+        run: docker build -f NsiKlk1.Api/Dockerfile --force-rm -t nsiklk1.azurecr.io/nsiklk1:v2 .
       - name: Docker Push
         run: docker push nsiklk1.azurecr.io/nsiklk1:v2
