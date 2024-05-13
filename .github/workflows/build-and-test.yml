@@ -31,6 +31,7 @@ jobs:
           dotnet tool install --global dotnet-ef
           dotnet tool restore
       - name: Add migration
+        working-directory: ../
         run: dotnet ef migrations add Migration --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
       - name: Database update
         run: dotnet ef database update --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
