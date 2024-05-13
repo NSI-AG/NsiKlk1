@@ -29,7 +29,7 @@ jobs:
       - name: Docker Push
         run: docker push nsiklk1.azurecr.io/nsiklk1:v2
       - name: Add migration
-        working-directory: /NsiKlk1
+        working-directory: home/runner/work/NsiKlk1
         run: |
             dotnet tool install --global dotnet-ef
             dotnet tool restore
