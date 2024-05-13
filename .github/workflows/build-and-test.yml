@@ -30,6 +30,7 @@ jobs:
         run: docker push nsiklk1.azurecr.io/nsiklk1:v2
       - name: Add migration
         run: |
+            cd ..
             dotnet tool install --global dotnet-ef
             dotnet tool restore
             dotnet ef migrations add Migration --verbose --project NsiKlk1.Infrastructure --startup-project NsiKlk1.Api
